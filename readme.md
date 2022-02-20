@@ -1,7 +1,16 @@
-# 📋 Clipboard
+# 📋 cb
 
 Command-line clipboard with automatic copy and paste detection. Eg,
 `cb|sort|cb`.
+
+## Purpose
+
+Graphical and command-line interfaces (GUIs and CLIs) are each great but working
+across them can be cumbersome. The system clipboard is a surprisingly convenient
+mechanism to integrate the two. cb improves that integration by automatically
+detecting whether a copy or paste is wanted for all major operating systems.
+Most of this tool is documentation to demonstrate the many ways in which the
+system clipboard can be used.
 
 ## Usage
 
