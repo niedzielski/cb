@@ -1,13 +1,34 @@
 # 📋 Clipboard
 
-A command-line clipboard wrapper that automatically detects copy and paste. Eg,
+Command-line clipboard with automatic copy and paste detection. Eg,
 `cb|sort|cb`.
+
+## Usage
+
+Supply standard input to **copy**:
+
+```console
+$ echo abc|cb
+```
+
+Supply no input to **paste**:
+
+```console
+$ cb
+abc
+```
+
+Both copy and paste can appear in the same command:
+
+```console
+$ curl "$(cb)"|cb
+```
 
 ## Installation
 
 ```bash
 # Download the script to ~/bin/cb.
-curl https://raw.githubusercontent.com/niedzielski/clipboard/master/clipboard -o ~/bin/cb &&
+curl https://raw.githubusercontent.com/niedzielski/clipboard/master/cb -o ~/bin/cb &&
 
 # Make the script executable.
 chmod +x ~/bin/cb
@@ -21,6 +42,12 @@ dependencies:
 - Linux: xclip (eg, `sudo apt install xclip`).
 - macOS: (none).
 - Windows: CygUtils (install via Cygwin GUI).
+
+### Troubleshooting
+
+Is `~/bin` in the `PATH` environment variable?
+`grep --only-matching ~/bin <<< "$PATH"` should report a match. If not, add it
+like `PATH="$PATH":~/bin`.
 
 ## Examples
 
@@ -44,7 +71,7 @@ dependencies:
   $ # Simulate pasting the text back to another program with control or command-V.
 
   $ cb
-  r  a
+  a
   b
   c
   ```
@@ -266,3 +293,6 @@ dependencies:
   `adb exec-out 'cat "$(ls -c1 /sdcard/DCIM/Camera/IMG*.jpg|tail -n1)"'`.
 
 - Clear the clipboard: `cb < /dev/null`.
+
+## License (public domain)
+All code in this work is public domain and may be used without limitation.
