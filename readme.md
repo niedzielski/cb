@@ -304,4 +304,5 @@ like `PATH="$PATH":~/bin`.
 - Clear the clipboard: `cb < /dev/null`.
 
 ## License (public domain)
-All code in this work is public domain and may be used without limitation.
+
+All code in this repository is public domain and may be used without limitation.
