@@ -5,12 +5,19 @@ Command-line clipboard with automatic copy and paste detection. Eg,
 
 ## Purpose
 
-Graphical and command-line interfaces (GUIs and CLIs) are each great but working
-across them can be cumbersome. The system clipboard is a surprisingly convenient
-mechanism to integrate the two. cb improves that integration by automatically
-detecting whether a copy or paste is wanted for all major operating systems.
-Most of this tool is documentation to demonstrate the many ways in which the
-system clipboard can be used.
+**cb** is a clipboard for working between graphical and command-line interfaces
+(GUIs and CLIs). The clipboard is a surprisingly convenient integration between
+the two and doesn't use temporary files. cb automatically performs a copy or a
+paste based on the context.
+
+### Why you don't need cb
+
+If any of the following are true, you do **not** need cb:
+
+- You use GUIs exclusively.
+- You use CLIs exclusively.
+- You don't mind using the system equivalent copy-and-paste CLIs directly.
+- You prefer using temporary files when working across GUIs and CLIs.
 
 ## Usage
 
@@ -33,6 +40,10 @@ Both copy and paste can appear in the same command:
 $ curl "$(cb)"|cb
 ```
 
+Contents on the clipboard can be used bidirectionally with other GUIs like
+graphical text editors or web browsers using the usual shortcut (control-c/v or
+command-c/v).
+
 ## Installation
 
 ```bash
@@ -49,8 +60,8 @@ All major operating operating systems are supported with the following
 dependencies:
 
 - Linux: xclip (eg, `sudo apt install xclip`).
-- macOS: (none).
-- Windows: CygUtils (install via Cygwin GUI).
+- macOS: (none, `pbcopy` / `pbpaste` are installed by default).
+- Windows: CygUtils (install `putclip` / `getclip` via Cygwin GUI).
 
 ### Troubleshooting
 
