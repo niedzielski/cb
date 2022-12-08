@@ -13,7 +13,9 @@ case "$OSTYPE$(uname)" in
           *) echo "unknown os=\"$OSTYPE$(uname)\"" >&2 ;;
 esac
 
+
 is_tux() { [ ${TUX_OS-0} -ne 0 ]; }
+is_wayland() { [ "$XDG_SESSION_TYPE" = 'wayland' ]; }
 is_mac() { [ ${MAC_OS-0} -ne 0 ]; }
 is_win() { [ ${WIN_OS-0} -ne 0 ]; }
 
@@ -27,8 +29,13 @@ elif is_win; then
   alias cbcopy=putclip
   alias cbpaste=getclip
 else
-  alias cbcopy='xclip -sel c'
-  alias cbpaste='xclip -sel c -o'
+  if is_wayland; then
+    alias cbcopy=wl-copy
+    alias cbpaste=wl-paste
+  else
+    alias cbcopy='xclip -sel c'
+    alias cbpaste='xclip -sel c -o'
+  fi
 fi
 
 # ------------------------------------------------------------------------------
