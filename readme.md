@@ -56,7 +56,7 @@ chmod +x ~/bin/cb
 
 ### Dependencies
 
-All major operating operating systems are supported with the following
+All major operating systems are supported with the following
 dependencies:
 
 - Linux: xclip (eg, `sudo apt install xclip`).
