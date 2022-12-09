@@ -16,8 +16,11 @@ If any of the following are true, you do **not** need cb:
 
 - You use GUIs exclusively.
 - You use CLIs exclusively.
-- You don't mind using the system equivalent copy-and-paste CLIs directly.
+- You can use the system equivalent copy-and-paste CLIs directly. Eg,
+  [XSel](https://github.com/kfish/xsel) or `pbcopy` / `pbpaste`.
 - You prefer using temporary files when working across GUIs and CLIs.
+
+All cb provides is a consistent interface across operating systems.
 
 ## Usage
 
@@ -56,12 +59,14 @@ chmod +x ~/bin/cb
 
 ### Dependencies
 
-All major operating systems are supported with the following
-dependencies:
+cb requires the following dependencies to be installed:
 
-- Linux: xclip (eg, `sudo apt install xclip`).
-- macOS: (none, `pbcopy` / `pbpaste` are installed by default).
+- Linux: xclip on X (eg, `sudo apt install xclip`) and wl-clipboard on Wayland
+  (`sudo apt install wl-clipboard`).
+- macOS: none (`pbcopy` / `pbpaste` are installed by default).
 - Windows: CygUtils (install `putclip` / `getclip` via Cygwin GUI).
+
+If in doubt, it's simplest to just try executing cb.
 
 ### Troubleshooting
 
