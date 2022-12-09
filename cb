@@ -1,26 +1,17 @@
 #!/usr/bin/env bash
-# universal clipboard, stephen@niedzielski.com
 
 shopt -s expand_aliases
 
-# ------------------------------------------------------------------------------
-# os utils
-
 case "$OSTYPE$(uname)" in
-  [lL]inux*) TUX_OS=1 ;;
+  [lL]inux*) ;;
  [dD]arwin*) MAC_OS=1 ;;
   [cC]ygwin) WIN_OS=1 ;;
-          *) echo "unknown os=\"$OSTYPE$(uname)\"" >&2 ;;
+          *) echo "Unknown operating system \"$OSTYPE$(uname)\"." >&2 ;;
 esac
 
-
-is_tux() { [ ${TUX_OS-0} -ne 0 ]; }
 is_wayland() { [ "$XDG_SESSION_TYPE" = 'wayland' ]; }
 is_mac() { [ ${MAC_OS-0} -ne 0 ]; }
 is_win() { [ ${WIN_OS-0} -ne 0 ]; }
-
-# ------------------------------------------------------------------------------
-# copy and paste
 
 if is_mac; then
   alias cbcopy=pbcopy
@@ -38,17 +29,16 @@ else
   fi
 fi
 
-# ------------------------------------------------------------------------------
 cb() {
   if [ ! -t 0 ] && [ $# -eq 0 ]; then
-    # no stdin and no call for --help, blow away the current clipboard and copy
+    # No stdin and no call for --help, blow away the current clipboard and copy.
     cbcopy
   else
     cbpaste ${@:+"$@"}
   fi
 }
 
-# ------------------------------------------------------------------------------
+# If sourced, do not execute.
 if ! return 2>/dev/null; then
   cb ${@:+"$@"}
 fi
