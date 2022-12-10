@@ -315,7 +315,7 @@ like `PATH="$PATH":~/bin`.
   `cb|gzip --best|wc --bytes && cb|brotli --best|wc --bytes`.
 
 - Copy the most recent photo taken on an Android device to the clipboard:
-  `adb exec-out 'cat "$(ls -c1 /sdcard/DCIM/Camera/IMG*.jpg|tail -n1)"'`.
+  `adb exec-out 'cat "$(ls -c1 /sdcard/DCIM/Camera/IMG*.jpg|tail -n1)"'|cb`.
 
 - Clear the clipboard: `cb < /dev/null`.
 
