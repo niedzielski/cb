@@ -1,6 +1,6 @@
 # 📋 cb
 
-Command-line clipboard with automatic copy and paste detection. Eg,
+Universal command-line clipboard with automatic copy and paste detection. Eg,
 `cb|sort|cb`.
 
 ## Purpose
@@ -58,7 +58,9 @@ curl https://raw.githubusercontent.com/niedzielski/clipboard/master/cb -o ~/bin/
 chmod +x ~/bin/cb
 ```
 
-cb also supports sourcing in sh-ish shells like `. cb` or `source ./cb`.
+cb also supports sourcing in Almquist-like shells like `. cb` or `source ./cb`.
+
+The heart of cb is tiny so edit it however you like and discard the rest!
 
 ### Dependencies
 
@@ -78,6 +80,10 @@ Is `~/bin` in the `PATH` environment variable?
 like `PATH="$PATH":~/bin`.
 
 ## Examples
+
+All of these examples appear trivial because copy-and-paste is ubiquitous. The
+intent is to demonstrate the understated usefulness of the system clipboard for
+CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 
 - Sort clipboard lines: `cb|sort|cb`. <details markdown><summary>Expand for
   detail…</summary>
