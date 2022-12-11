@@ -20,7 +20,8 @@ If any of the following are true, you do **not** need cb:
   [XSel](https://github.com/kfish/xsel) or `pbcopy` / `pbpaste`.
 - You prefer using temporary files when working across GUIs and CLIs.
 
-All cb provides is a consistent interface across operating systems.
+All cb provides is a consistent interface across operating systems. Any
+clipboard CLI will do. What's important is how you use the tool.
 
 ## Usage
 
@@ -56,6 +57,8 @@ curl https://raw.githubusercontent.com/niedzielski/clipboard/master/cb -o ~/bin/
 # Make the script executable.
 chmod +x ~/bin/cb
 ```
+
+cb also supports sourcing in sh-ish shells like `. cb` or `source ./cb`.
 
 ### Dependencies
 
