@@ -328,6 +328,6 @@ CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 
 - Clear the clipboard: `cb < /dev/null`.
 
-## License (public domain)
+## License (Public Domain)
 
 All code in this repository is public domain and may be used without limitation.

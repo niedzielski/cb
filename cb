@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
-# If not sourced, set safety options.
-case "$0" in */cb) set -eu ;; esac
+is_exec() { case "$0" in */cb) : ;; esac; }
+
+if is_exec; then set -eu; fi
 
 case "${OSTYPE:-}$(uname)" in
  [lL]inux*) ;;
@@ -25,19 +26,19 @@ else
     alias cbcopy=wl-copy
     alias cbpaste=wl-paste
   else
-    alias cbcopy='xclip -sel c'
-    alias cbpaste='xclip -sel c -o'
+    alias cbcopy='xclip -selection clipboard'
+    alias cbpaste='xclip -selection clipboard -out'
   fi
 fi
 
 cb() {
-  if [ ! -t 0 ] && [ $# -eq 0 ]; then
-    # No stdin and no call for --help, blow away the current clipboard and copy.
-    cbcopy
-  else
+  if [ -t 0 ]; then
+    # stdin is connected to a terminal.
     cbpaste "$@"
+  else
+    cbcopy "$@"
   fi
 }
 
-# If not sourced, execute.
-case "$0" in */cb) cb "$@" ;; esac
+if is_exec; then cb "$@"; fi
+
