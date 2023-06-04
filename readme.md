@@ -52,7 +52,7 @@ command-c/v).
 
 ```bash
 # Download the script to ~/bin/cb.
-curl https://raw.githubusercontent.com/niedzielski/clipboard/master/cb -o ~/bin/cb &&
+curl https://raw.githubusercontent.com/niedzielski/clipboard/main/cb -o ~/bin/cb &&
 
 # Make the script executable.
 chmod +x ~/bin/cb
