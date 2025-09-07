@@ -208,6 +208,8 @@ CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 
   </details>
 
+- Copy from Chromium DevTools `copy($('table:has(> caption)'))` and `cb|html2text`.
+
 - Copy the version of Chromium to the clipboard: `chromium --version|cb`.
   <details markdown><summary>Expand for detail…</summary>
 
@@ -292,6 +294,21 @@ CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 
   </details>
 
+- Copy Git patch from one repo to another.
+  <details markdown><summary>Expand for detail…</summary>
+
+  ```console
+  $ cd clone-a # Enter the repo directory.
+
+  $ git diff|cb # Copy the patch. Run `git add .` first to include untracked files.
+
+  $ cd ../clone-b # Enter the directory of another clone.
+
+  $ cb|git apply # Paste the patch.
+  ```
+
+  </details>
+
 - Test if the random patch you found online and copied to your clipboard applies
   to your code: `git apply --check <(cb)`.
 
@@ -301,6 +318,8 @@ CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 - Reverse clipboard line order: `cb|tac|cb`.
 
 - Copy an image to the clipboard: `cb < banana.png`.
+
+- Copy text to the clipboard: `cb < phonebook.csv`.
 
 - Wrap clipboard text at 72 characters:
   `cb|fold --spaces --width=72|sed 's% \+$%%'|cb`.
@@ -318,13 +337,15 @@ CLI-GUI integration. You can work seamlessly across GUIs and CLIs with it.
 - Save the clipboard to a transient file:
   `t="$(mktemp)" && cb >| "$t" && echo "$t"`.
 
-- Edit the clipboard contents in a temporary buffer `cb|vim -`.
+- Edit the clipboard contents in a temporary buffer: `cb|vim -`.
 
 - Compare Gzip and Brotli compressions of the clipboard:
   `cb|gzip --best|wc --bytes && cb|brotli --best|wc --bytes`.
 
 - Copy the most recent photo taken on an Android device to the clipboard:
   `adb exec-out 'cat "$(ls -c1 /sdcard/DCIM/Camera/IMG*.jpg|tail -n1)"'|cb`.
+
+- Convert richtext to plaintext: `cb|cb`.
 
 - Clear the clipboard: `cb < /dev/null`.
 
